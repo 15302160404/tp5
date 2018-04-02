@@ -1,15 +1,17 @@
 <?php
 namespace app\index\controller;
-//use think\Db;//引入数据类
-use app\common\model\Teacher;
-use think\Controller;
-class TeacherController extends Controller{
+
+use think\Controller;  //1 引入
+class TeacherController extends Controller{  //2继承
 	public function index()
 	{
-		return $this->fetch();
+	   $teachers= model('Teacher')->getAllTeacher();
+	  //$this->assign('teachers',$teachers);
+      //return $this->fetch();
+	   return $this->fetch('',['teachers'=>$teachers]);
 	}
-	public function hi()
+	public function hi()//index.html
 	{
-		echo "hi";
+		return $this->fetch('test@test/hello');
 	}
 }
