@@ -139,7 +139,7 @@ return [
     ],
 
     // 视图输出字符串内容替换
-    'view_replace_str'       => ['__STATIC__'=>'/thinkphp5/public/static'],
+    'view_replace_str'       => ['__STATIC__'=>dirname($_SERVER['SCRIPT_NAME']).'/static'],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
     'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
@@ -235,5 +235,16 @@ return [
         'type'      => 'bootstrap',
         'var_page'  => 'page',
         'list_rows' => 1,
+    ],
+    'captcha' => [
+        // 验证码字体大小
+        'fontSize'    =>    20,    
+        // 验证码位数
+        'length'      =>    4,   
+        // 关闭验证码杂点
+        'useNoise'    =>    true,
+        //是否画混淆曲线
+        'useCurve'    => true,
+        //
     ],
 ];
