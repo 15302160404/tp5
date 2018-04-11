@@ -139,7 +139,9 @@ return [
     ],
 
     // 视图输出字符串内容替换
-    'view_replace_str'       => ['__STATIC__'=>dirname($_SERVER['SCRIPT_NAME']).'/static'],
+    'view_replace_str'       => [
+        '__STATIC__' =>dirname($_SERVER['SCRIPT_NAME']).'/static',
+    ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
     'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
@@ -234,7 +236,7 @@ return [
     'paginate'               => [
         'type'      => 'bootstrap',
         'var_page'  => 'page',
-        'list_rows' => 1,
+        'list_rows' => 4,
     ],
     'captcha' => [
         // 验证码字体大小

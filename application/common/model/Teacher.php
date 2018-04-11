@@ -8,7 +8,7 @@ class Teacher extends Model{
 		//查询条件 'sex'=>0
 		$data=[];
 		//排序方式
-		$order=['id'=>'desc','sex'=>'desc'];
+		$order=['id'=>'asc','sex'=>'asc'];
 	    return	$this->where($data)
 				->order($order)
 				->paginate();  //1
