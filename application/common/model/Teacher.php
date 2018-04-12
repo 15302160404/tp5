@@ -13,4 +13,8 @@ class Teacher extends Model{
 				->order($order)
 				->paginate();  //1
 	}
+	public function add($data){
+        $this->save($data);
+	    return $this->id;
+    }
 }
