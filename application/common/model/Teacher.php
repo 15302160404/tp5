@@ -1,7 +1,8 @@
 <?php
 namespace app\common\model;
 use think\Model;
-class Teacher extends Model{
+class Teacher extends Model
+{
 	//取数据
 	public function getAllTeacher()
 	{
@@ -13,7 +14,8 @@ class Teacher extends Model{
 				->order($order)
 				->paginate();  //1
 	}
-	public function add($data){
+	public function add($data)
+    {
         $this->save($data);
 	    return $this->id;
     }

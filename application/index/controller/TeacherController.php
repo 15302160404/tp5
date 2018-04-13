@@ -48,6 +48,9 @@ class TeacherController extends Controller{  //2继承
             $this->success('注册成功，您的新ID为：'.$id,'index');
         }
         $this->error('注册失败');
-
 	}
+	public function del()
+    {
+        $this->success('删除成功','index');
+    }
 }
