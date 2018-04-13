@@ -2,7 +2,6 @@
 namespace app\index\controller;
 
 use think\Controller;  //1 引入
-use app\common\model\Teacher;
 class TeacherController extends Controller{  //2继承
     //查看记录
 	public function index()
@@ -23,14 +22,32 @@ class TeacherController extends Controller{  //2继承
 	//添加纪录
 	public function save(){
 		//return $this->redirect(url('teacher/hi'));
-		$teacher = new Teacher($_POST);
-        //
-        $validate = validate('Teacher');
-        if(!$validate->check($_POST)){
-            $this->error($validate->getError());exit;
+        //判断提交方式post
+        if(!request()->isPost()){
+            $this->error('非法登录');
         }
-        //$teacher->saveAll(input("post."));
-        $teacher->allowField(true)->save();
-        $this->success('添加成功','index');
+        //获取提交数据
+        $data = input('post.');
+        //验证数据合法性
+        $validate = validate('teacher');
+        if(!$validate->check($data)){
+            $this->error($validate->getError());
+        }
+        //数据再加工
+        $teacherData = [
+            'name'=>$data['name'],
+            'username'=>$data['username'],
+            'email'=>$data['email'],
+            'sex'=>$data['sex'],
+            'password'=>md5($data['password'])
+        ];
+        //调用模型里的增加数据方法
+        $id = model('teacher')->add($teacherData);
+        //根据返回结果判断是否保存成功
+        if($id){
+            $this->success('注册成功，您的新ID为：'.$id,'index');
+        }
+        $this->error('注册失败');
+
 	}
 }

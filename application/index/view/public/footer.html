@@ -3,3 +3,13 @@
 	</nav>
 </body>
 </html>
+	<script src="__STATIC__/js/Jquery.js"></script>
+	<script>
+        var pathname = window.location.pathname + window.location.search;
+        $(".nav-tabs li a").each(function() {
+            var href = $(this).attr("href");
+            if(pathname ==  href){
+                $(this).parent("li").addClass("active");
+            }
+        });
+	</script>
