@@ -1,9 +1,12 @@
 <?php
 namespace app\index\controller;
 
-use think\Controller;  //1 引入
+use think\Controller;
+use think\Request;  //1 引入
 class TeacherController extends Controller{  //2继承
-    //查看记录
+    /**
+     * 查看记录
+     */
 	public function index()
 	{
 	   $teachers= model('Teacher')->getAllTeacher();
@@ -11,7 +14,11 @@ class TeacherController extends Controller{  //2继承
       //return $this->fetch();
 	   return $this->fetch('',['teachers'=>$teachers]);
 	}
-	//url测试
+
+    /**
+     * url测试
+     * @return mixed
+     */
 	public function hi()//index.html
 	{
 		return $this->fetch('test@test/hello');
@@ -19,7 +26,10 @@ class TeacherController extends Controller{  //2继承
 	public function add(){
 		return $this->fetch();
 	}
-	//添加纪录
+
+    /**
+     * 添加纪录
+     */
 	public function save(){
 		//return $this->redirect(url('teacher/hi'));
         //判断提交方式post
@@ -49,8 +59,21 @@ class TeacherController extends Controller{  //2继承
         }
         $this->error('注册失败');
 	}
+
+    /**
+     * 删除记录
+     */
 	public function del()
     {
-        $this->success('删除成功','index');
+//        $id = Request::instance()->get('id');
+        if (input('?param.id'))
+        {
+            $id = input('param.id');
+            $result = model('Teacher')->where('id',$id)->delete();
+            if(!$result){
+                return $this->error('删除失败');exit;
+            }
+            return $this->success('删除成功','index');
+        }
     }
 }
