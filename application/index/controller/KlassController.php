@@ -12,7 +12,8 @@ class KlassController extends Controller{
 			]);
 	}
 	public function add(){
-		return $this->fetch();
+		$teachers = model('teacher')->getTeacher();
+		return $this->fetch('',['teachers'=>$teachers]);
 	}
 	public function save(){
 		if (!request()->isPost()) {
@@ -32,6 +33,5 @@ class KlassController extends Controller{
 			return $this->success('添加成功','klass/index');
 		}
 		return $this->error('添加失败');
-
 	}
 }

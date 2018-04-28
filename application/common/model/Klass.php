@@ -15,4 +15,7 @@ class Klass extends Model{
         $this->save($data);
 	    return $this->id;
     }
+    public function Teacher(){
+		return $this->belongsTo('Teacher');
+	}
 }

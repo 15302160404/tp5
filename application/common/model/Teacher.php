@@ -19,4 +19,7 @@ class Teacher extends Model
         $this->save($data);
 	    return $this->id;
     }
+    public function getTeacher(){
+    	return $this->select();
+    }
 }
