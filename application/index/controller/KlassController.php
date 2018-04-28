@@ -34,4 +34,15 @@ class KlassController extends Controller{
 		}
 		return $this->error('添加失败');
 	}
+	public function del(){
+		if (input('?param.id'))
+        {
+            $id = input('param.id');
+            $result = model('Klass')->where('id',$id)->delete();
+            if(!$result){
+                return $this->error('删除失败');exit;
+            }
+            return $this->success('删除成功','index');
+        }
+	}
 }
