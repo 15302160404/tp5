@@ -16,7 +16,7 @@ CREATE TABLE `yunzhi_teacher` (
   `create_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `yunzhi_teacher`
@@ -46,7 +46,7 @@ CREATE TABLE `yunzhi_klass` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `yunzhi_klass`
@@ -76,7 +76,7 @@ CREATE TABLE `yunzhi_student` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `yunzhi_student`
@@ -101,7 +101,7 @@ CREATE TABLE `yunzhi_course` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `yunzhi_course`
@@ -121,7 +121,7 @@ CREATE TABLE `yunzhi_klass` (
   `create_time` int(11) unsigned NOT NULL DEFAULT '0',
   `update_time` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `yunzhi_klass`
@@ -141,7 +141,7 @@ CREATE TABLE `yunzhi_klass_course` (
   `create_time` int(11) unsigned NOT NULL,
   `update_time` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `yunzhi_klass_course`
