@@ -13,7 +13,8 @@ class StudentController extends Controller{
 	}
 	public function add()
 	{
-		return $this->fetch();
+		$klass = model('klass')->getKlasss();
+		return $this->fetch('',['klass'=>$klass]);
 	}
 	public function save(){
 		if (!request()->isPost()) {
@@ -28,7 +29,7 @@ class StudentController extends Controller{
 			'name'=>$data['name'],
 			'num'=>$data['num'],
 			'sex'=>$data['sex'],
-			'klass_id'=>1,
+			'klass_id'=>$data['klass_id'],
 			'email'=>$data['email'],
 		];
 		$id = model('student')->add($dataStudent);

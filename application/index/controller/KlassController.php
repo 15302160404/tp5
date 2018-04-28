@@ -26,7 +26,7 @@ class KlassController extends Controller{
 		}
 		$dataKlass = [
 			'name'=>$data['name'],
-			'teacher_id'=>1
+			'teacher_id'=>$data['teacher_id']
 		];
 		$id = model('klass')->save($dataKlass);
 		if ($id) {

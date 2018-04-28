@@ -18,4 +18,7 @@ class Klass extends Model{
     public function Teacher(){
 		return $this->belongsTo('Teacher');
 	}
+	public function getKlasss(){
+		return $this->select();
+	}
 }

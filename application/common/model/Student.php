@@ -15,4 +15,7 @@ class Student extends Model{
         $this->save($data);
 	    return $this->id;
     }
+    public function Klass(){
+    	return $this->belongsTo('klass');
+    }
 }
