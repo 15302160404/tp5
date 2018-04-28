@@ -38,4 +38,15 @@ class StudentController extends Controller{
 		}
 		return $this->success('添加学生成功','student/index');
 	}
+	public function del(){
+		if (input('?param.id'))
+        {
+            $id = input('param.id');
+            $result = model('Student')->where('id',$id)->delete();
+            if(!$result){
+                return $this->error('删除失败');exit;
+            }
+            return $this->success('删除成功','index');
+        }
+	}
 }

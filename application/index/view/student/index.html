@@ -18,6 +18,7 @@
 		<td>班级</td>
 		<td>邮箱</td>
 		<td>创建时间</td>
+		<td>删除</td>
 	</tr>
 {volist name="students" id="vo"}
 	<tr>
@@ -34,6 +35,7 @@
 		<td>{$vo.klass.name}</td>
 		<td>{$vo.email}</td>
 		<td>{$vo.create_time}</td>
+		<td><a href="{:url('student/del',['id'=>$vo.id])}"><i class="fa fa-times"></i></a></td>
 	</tr>
 {/volist}
 </table>
