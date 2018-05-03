@@ -15,4 +15,10 @@ class Course extends Model{
         $this->save($data);
 	    return $this->id;
     }
+    public function getCourses(){
+		//分页
+		$order=['id'=>'asc'];
+		return $this->order($order)
+					->select();
+	}
 }

@@ -1,0 +1,41 @@
+{include file="public/header" }
+{include file="public/menu" }
+<form class="form-horizontal" action="{:url('klasscourse/save')}" method="post">
+<div class="form-group" style="margin-top:10px;">
+    <label for="inputEmail3" class="col-sm-2 control-label">课程</label>
+    <div class="col-sm-10">
+      <select class="form-control" name="course_id">
+        {volist name="courses" id='vo'}
+          <option value="{$vo.id}">{$vo.name}</option>
+        {/volist}
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">班级</label>
+    <div class="col-sm-10">
+      {volist name="klasss" id='vo'}
+      <label class="checkbox-inline">
+        <input type="checkbox" name="klass_id[]" value="{$vo.id}"> {$vo.name}
+      </label>
+      {/volist}
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">验证码</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="vote" placeholder="请输入验证码">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label"></label>
+    <img src="{:captcha_src()}" class="img-responsive img-rounded" alt="captcha" onclick="this.src=this.src+'?'+Math.random()" style="margin-bottom: 10px;" />
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">提交</button>
+    </div>
+  </div>
+</form>
+{include file="public/footer" }
