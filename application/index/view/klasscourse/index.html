@@ -1,0 +1,24 @@
+{include file="public/header" }
+{include file="public/menu" }
+<table class="table table-striped table-bordered">
+	<tr>
+		<td>id</td>
+		<td>班级名</td>
+		<td>课程名</td>
+		<td>删除</td>
+	</tr>
+{volist name="courses" id="vo"}
+	<tr>
+		<td>{$vo.id}</td>
+		<td>{$vo.Course.name|default='课程为空'}</td>
+		<td>{$vo.Klass.name|default='班级为空'}</td>
+		<td><a href="{:url('klasscourse/del',['id'=>$vo.id])}"><i class="fa fa-times"></i></a></td>
+	</tr>
+{/volist}
+</table>
+{$courses->render()}
+
+
+	{include file="public/footer" }
+</body>
+</html>
