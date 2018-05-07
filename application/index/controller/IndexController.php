@@ -6,7 +6,6 @@ class IndexController extends Controller //2
 {
     public function index()
     {
-      //3
       return $this->fetch();
     }
 }
