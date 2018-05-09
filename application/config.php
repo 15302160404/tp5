@@ -240,9 +240,9 @@ return [
     ],
     'captcha' => [
         // 验证码字体大小
-        'fontSize'    =>    20,    
+        'fontSize'    =>    30,    
         // 验证码位数
-        'length'      =>    4,   
+        'length'      =>    2,   
         // 关闭验证码杂点
         'useNoise'    =>    true,
         //是否画混淆曲线

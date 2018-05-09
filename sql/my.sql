@@ -149,5 +149,21 @@ CREATE TABLE `yunzhi_klass_course` (
 BEGIN;
 INSERT INTO `yunzhi_klass_course` VALUES ('2', '1', '2', '0', '0'), ('4', '2', '2', '0', '0'), ('6', '4', '2', '0', '0'), ('8', '6', '2', '0', '0'), ('9', '1', '3', '0', '0'), ('10', '2', '3', '0', '0'), ('11', '1', '4', '0', '0'), ('12', '2', '4', '0', '0');
 COMMIT;
-
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- ----------------------------
+--  Table structure for `yunzhi_admin`
+-- ----------------------------
+DROP TABLE IF EXISTS `yunzhi_admin`;
+CREATE TABLE `yunzhi_admin` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL DEFAULT '' COMMENT '用户名',
+  `password` varchar(40) NOT NULL DEFAULT '' COMMENT '密码',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- ----------------------------
+--  Records of `yunzhi_klass_course`
+-- ----------------------------
+BEGIN;
+INSERT INTO `yunzhi_admin` VALUES (0,'admin','4297f44b13955235245b2497399d7a93');
+COMMIT;
