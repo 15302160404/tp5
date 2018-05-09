@@ -73,7 +73,14 @@ class TeacherController extends Controller{  //2继承
             if(!$result){
                 return $this->error('删除失败');exit;
             }
-            return $this->success('删除成功','index');
+            return $this->success('删除成功','index/index');
         }
+    }
+    /**
+     * 更新记录
+     */
+    public function update()
+    {
+        return $this->fetch();
     }
 }
