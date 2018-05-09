@@ -1,40 +1,33 @@
-{include file="public/header" }
-
+{extend name='main'} {block name='content'}
+<div style="text-align: center;margin-bottom: 60px;">
+    <h2 style="margin-bottom: 20px;">学生信息</h2>
+    <span style="display: block;width: 100px;border:1px solid #999;margin:0 auto"></span>
+</div>
 <table class="table table-striped table-bordered">
-	<tr>
-		<th>id</th>
-		<th>名字</th>
-		<th>学号</th>
-		<th>性别</th>
-		<th>班级</th>
-		<th>邮箱</th>
-		<th>创建时间</th>
-		<th colspan="2">操作</th>
-		
-	</tr>
-{volist name="students" id="vo"}
-	<tr>
-		<td>{$vo.id}</td>
-		<td>{$vo.name}</td>
-		<td>{$vo.num}</td>
-		<td>
-			{eq name="vo.sex" value="0"}
-			男
-			{else/}
-			女
-			{/eq}
-		</td>
-		<td>{$vo.klass.name}</td>
-		<td>{$vo.email}</td>
-		<td>{$vo.create_time}</td>
-		<td><a href="{:url('student/del',['id'=>$vo.id])}"><i class="fa fa-times"></i></a></td>
-		<td><a href="{:url('',['id'=>$vo.id])}"><i class="fa fa-pencil"></i></a></td>
-	</tr>
-{/volist}
+    <tr>
+        <th>id</th>
+        <th>名字</th>
+        <th>学号</th>
+        <th>性别</th>
+        <th>班级</th>
+        <th>邮箱</th>
+        <th>创建时间</th>
+        <th colspan="2">操作</th>
+    </tr>
+    {volist name="students" id="vo"}
+    <tr>
+        <td>{$vo.id}</td>
+        <td>{$vo.name}</td>
+        <td>{$vo.num}</td>
+        <td>
+            {eq name="vo.sex" value="0"} 男 {else/} 女 {/eq}
+        </td>
+        <td>{$vo.klass.name}</td>
+        <td>{$vo.email}</td>
+        <td>{$vo.create_time}</td>
+        <td><a href="{:url('student/del',['id'=>$vo.id])}"><i class="fa fa-times"></i></a></td>
+        <td><a href="{:url('',['id'=>$vo.id])}"><i class="fa fa-pencil"></i></a></td>
+    </tr>
+    {/volist}
 </table>
-{$students->render()}
-
-
-	{include file="public/footer" }
-</body>
-</html>
+{$students->render()} {/block}

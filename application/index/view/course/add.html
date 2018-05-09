@@ -1,4 +1,9 @@
-{include file="public/header" }
+{extend name='main'}
+{block name='content'}
+<div style="text-align: center;margin-bottom: 60px;">
+  <h2 style="margin-bottom: 20px;">添加课程</h2>
+  <span style="display: block;width: 100px;border:1px solid #999;margin:0 auto"></span>
+</div>
 <form class="form-horizontal" action="{:url('course/save')}" method="post">
   <div class="form-group" style="margin-top:10px;">
     <label for="inputEmail3" class="col-sm-2 control-label">课程名</label>
@@ -22,4 +27,4 @@
     </div>
   </div>
 </form>
-{include file="public/footer" }
+{/block}
