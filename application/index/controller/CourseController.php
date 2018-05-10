@@ -15,6 +15,10 @@ class CourseController extends Controller{
 	{
 		return $this->fetch();
 	}
+	/**
+	 * 保存记录
+	 * @return [type] [description]
+	 */
 	public function save(){
 		if (!request()->isPost()) {
 			return $this->error('非法登录');exit;
@@ -33,6 +37,10 @@ class CourseController extends Controller{
 		}
 		return $this->success('添加课程成功','course/index');
 	}
+	/**
+	 * 删除记录
+	 * @return [type] [description]
+	 */
 	public function del(){
 		if (input('?param.id'))
         {
@@ -44,4 +52,39 @@ class CourseController extends Controller{
             return $this->success('删除成功','index');
         }
 	}
+	/**
+	 * 编辑记录
+	 */
+	public function edit()
+	{
+		if(input('?param.id'))
+		{
+			$id = input('param.id');
+		}
+		$courses = model('course')->where('id',$id)->select();
+		return $this->fetch('',['courses'=>$courses]);
+	}
+	/**
+	 * 更新记录
+	 */
+	public function update()
+	{
+		if(request()->isPost())
+		{
+			$data = input('post.');
+			$validate = validate('Course');
+			if(!$validate->check($data))
+			{
+				return $this->error($validate->getError());
+			}
+			$result = model('Course')->save([
+				'name'=>$data['name']
+			],['id'=>$data['id']]);
+			if($result)
+			{
+				return $this->success('更新成功','course/index');
+			}
+			return $this->error('更新失败');
+		}
+	} 
 }

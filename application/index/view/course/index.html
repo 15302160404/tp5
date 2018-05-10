@@ -17,7 +17,7 @@
 		<td>{$vo.name}</td>
 		<td>{$vo.create_time}</td>
 		<td><a href="{:url('course/del',['id'=>$vo.id])}"><i class="fa fa-times"></i></a></td>
-		<td><a href="{:url('',['id'=>$vo.id])}"><i class="fa fa-pencil"></i></a></td>
+		<td><a href="{:url('course/edit',['id'=>$vo.id])}"><i class="fa fa-pencil"></i></a></td>
 	</tr>
 {/volist}
 </table>
