@@ -55,7 +55,7 @@ class KlassController extends Controller{
 			$id = input('param.id');
 		}
 		$klass = model('Klass')->where('id',$id)->select();
-		$teachers = model('teacher')->getTeacher();
+		$teachers = model('Teacher')->getTeacher();
 		return $this->fetch('',['klass'=>$klass,'teachers'=>$teachers]);
 	}
 }

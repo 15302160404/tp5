@@ -10,7 +10,7 @@
     <div class="form-group" style="margin-top:10px;">
         <label for="inputEmail3" class="col-sm-2 control-label">班级名称</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="name" placeholder="请输入班级名称">
+            <input type="text" class="form-control" name="name" value="{$vo.name}">
         </div>
     </div>
     <div class="form-group">
@@ -18,7 +18,7 @@
         <div class="col-sm-10">
             <select class="form-control" name="teacher_id">
                 {volist name="teachers" id='vo1'}
-                <option value="{$vo1.id}" {eq name="vo1.id" value="vo.teacher_id" }selected{/eq}>{$vo1.name}</option>
+                    <option value="{$vo.id}" {eq name="vo1.id" value="vo1.teacher_id"}selected{/eq}>{$vo1.name}</option>
                 {/volist}
             </select>
         </div>
