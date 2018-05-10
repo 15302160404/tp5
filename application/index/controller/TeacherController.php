@@ -77,10 +77,34 @@ class TeacherController extends Controller{  //2继承
         }
     }
     /**
+     * 编辑记录
+     */
+    public function edit()
+    {
+        if (input('?param.id'))
+        {
+            $id = input('param.id');
+        }
+        $teachers = model('Teacher')->where('id',$id)->select();
+        return $this->fetch('',['teachers'=>$teachers]);
+    }
+    /**
      * 更新记录
      */
     public function update()
     {
-        return $this->fetch();
+        if(request()->isPost()){
+            $data = input('post.');
+            $result = model('Teacher')->save([
+                'name'=>$data['name'],
+                'username'=>$data['username'],
+                'email'=>$data['email'],
+                'sex'=>$data['sex']
+            ],['id'=>$data['id']]);
+            if ($result) {
+                return $this->success('更新成功','teacher/index');
+            }
+            return $this->error('更新失败');
+        }
     }
 }

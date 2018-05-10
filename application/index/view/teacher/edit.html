@@ -1,41 +1,41 @@
-{extend name="main"} {block name="content"}
+{extend name='main'}
+{block name="content"}
 <div style="text-align: center;margin-bottom: 60px;">
-    <h2 style="margin-bottom: 20px;">添加老师</h2>
+    <h2 style="margin-bottom: 20px;">编辑老师</h2>
     <span style="display: block;width: 100px;border:1px solid #999;margin:0 auto"></span>
 </div>
-<form action="{:url('teacher/save')}" method="post">
+{volist name="teachers" id='vo'}
+<form action="{:url('teacher/update')}" method="post">
     <div class="form-group">
         <label for="username">用户名</label>
-        <input type="text" class="form-control " name="username" id="username" placeholder="用户名">
+        <input type="text" class="form-control " name="username" id="username" value="{$vo.username}">
+        <input type="hidden" name="id" value="{$vo.id}">
     </div>
     <div class="form-group">
         <label for="sex">性别</label>
         <br>
         <label class="radio-inline">
-            <input type="radio" name="sex" id="inlineRadio1" checked value="0"> 男
+            <input type="radio" name="sex" id="inlineRadio1" {eq name="vo.sex" value="0"}checked{/eq} value="0"> 男
         </label>
         <label class="radio-inline">
-            <input type="radio" name="sex" id="inlineRadio2" value="1"> 女
+            <input type="radio" name="sex" id="inlineRadio2" {eq name="vo.sex" value="1"}checked{/eq} value="1"> 女
         </label>
     </div>
     <div class="form-group">
         <label for="name">名字</label>
-        <input type="text" name="name" class="form-control " id="name" placeholder="名字">
+        <input type="text" name="name" class="form-control " id="name" value="{$vo.name}">
     </div>
     <div class="form-group">
         <label for="email">邮箱</label>
-        <input type="text" name="email" class="form-control " id="email" placeholder="邮箱">
-    </div>
-    <div class="form-group">
-        <label for="password">密码</label>
-        <input type="password" name="password" class="form-control" id="password" placeholder="密码">
+        <input type="text" name="email" class="form-control " id="email" value="{$vo.email}">
     </div>
     <div class="form-group">
         <label for="yzm">验证码</label>
         <br>
         <img src="{:captcha_src()}" class="img-responsive img-rounded" alt="captcha" onclick="this.src=this.src+'?'+Math.random()" style="margin-bottom: 10px;" />
-        <input type="text" name="vote" class="form-control" id="yzm" placeholder="验证码">
+        <input type="text" name="vote" class="form-control" id="yzm" placeholder ="验证码">
     </div>
     <button type="submit" class="btn btn-info" class="btn btn-success">提交</button>
 </form>
+{/volist}
 {/block}

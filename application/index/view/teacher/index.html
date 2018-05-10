@@ -24,7 +24,7 @@
         <td>{$vo.username}</td>
         <td>{$vo.create_time}</td>
         <td><a href="{:url('teacher/del',['id'=>$vo.id])}" title="删除"><i class="fa fa-times"></i></a></td>
-        <td><a href="{:url('teacher/update',['id'=>$vo.id])}" title="编辑"><i class="fa fa-pencil"></i></a></td>
+        <td><a href="{:url('teacher/edit',['id'=>$vo.id])}" title="编辑"><i class="fa fa-pencil"></i></a></td>
     </tr>
     {/volist}
 </table>
