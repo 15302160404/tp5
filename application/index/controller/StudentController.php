@@ -49,4 +49,44 @@ class StudentController extends Controller{
             return $this->success('删除成功','index');
         }
 	}
+	/**
+	 * 编辑记录
+	 * @return [type] [description]
+	 */
+	public function edit()
+	{
+		if(input('?param.id'))
+		{
+			$id = input('param.id');
+		}
+		$student = model('student')->where('id',$id)->select();
+		$klasss = model('klass')->getKlasss();
+		return $this->fetch('',['student'=>$student,'klasss'=>$klasss]);
+	}
+	/**
+	 * 更新记录
+	 */
+	public function update()
+	{
+		if(request()->isPost())
+		{
+			$data = input('post.');
+			$validate = validate('Student');
+            if(!$validate->check($data)){
+                return $this->error($validate->getError());
+            }
+            $result = model('student')->save([
+            	'name'=>$data['name'],
+            	'sex'=>$data['sex'],
+            	'klass_id'=>$data['klass_id'],
+            	'email'=>$data['email'],
+            	'num'=>$data['num']
+            ],['id'=>$data['id']]);
+            if ($result) {
+            	return $this->success('更新成功','student/index');
+            }
+            return $this->error('更新失败');
+		}
+		return $this->error('非法登录');
+	}
 }

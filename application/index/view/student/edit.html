@@ -1,0 +1,64 @@
+{extend name='main'}
+{block name="content"}
+<div style="text-align: center;margin-bottom: 60px;">
+    <h2 style="margin-bottom: 20px;">编辑学生</h2>
+    <span style="display: block;width: 100px;border:1px solid #999;margin:0 auto"></span>
+</div>
+{volist name="student" id='vo'}
+<form class="form-horizontal" action="{:url('student/update')}" method="post">
+    <div class="form-group" style="margin-top:10px;">
+        <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" value="{$vo.name}">
+            <input type="hidden" name="id" value="{$vo.id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">学号</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="num" value="{$vo.num}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="sex" class="col-sm-2 control-label">性别</label>
+        <label class="radio-inline">
+            <input type="radio" name="sex" id="inlineRadio1" {eq name="vo.sex" value="0"}checked{/eq} value="0"> 男
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="sex" id="inlineRadio2" {eq name="vo.sex" value="1"}checked{/eq} value="1"> 女
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">班级</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="klass_id">
+                {volist name="klasss" id='vo1'}
+                	<option value="{$vo1.id}" {eq name="$vo1.id" value="$vo.klass_id"}selected{/eq}>{$vo1.name}</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">邮箱</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="email" value="{$vo.email}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">验证码</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="vote" placeholder="请输入验证码">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label"></label>
+        <img src="{:captcha_src()}" class="img-responsive img-rounded" alt="captcha" onclick="this.src=this.src+'?'+Math.random()" style="margin-bottom: 10px;" />
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">提交</button>
+        </div>
+    </div>
+</form>
+{/volist}
+{/block}

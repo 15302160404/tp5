@@ -95,6 +95,10 @@ class TeacherController extends Controller{  //2继承
     {
         if(request()->isPost()){
             $data = input('post.');
+            $validate = validate('Teacher');
+            if(!$validate->check($data)){
+                return $this->error($validate->getError());
+            }
             $result = model('Teacher')->save([
                 'name'=>$data['name'],
                 'username'=>$data['username'],

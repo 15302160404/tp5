@@ -45,4 +45,17 @@ class KlassController extends Controller{
             return $this->success('删除成功','index');
         }
 	}
+	/**
+	 * 编辑记录
+	 */
+	public function edit()
+	{
+		if(input('?param.id'))
+		{
+			$id = input('param.id');
+		}
+		$klass = model('Klass')->where('id',$id)->select();
+		$teachers = model('teacher')->getTeacher();
+		return $this->fetch('',['klass'=>$klass,'teachers'=>$teachers]);
+	}
 }

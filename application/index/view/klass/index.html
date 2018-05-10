@@ -19,7 +19,7 @@
         <td>{$vo.teacher.name}</td>
         <td>{$vo.create_time}</td>
         <td><a href="{:url('klass/del',['id'=>$vo.id])}"><i class="fa fa-times"></i></a></td>
-        <td><a href="{:url('',['id'=>$vo.id])}"><i class="fa fa-pencil"></i></a></td>
+        <td><a href="{:url('klass/edit',['id'=>$vo.id])}"><i class="fa fa-pencil"></i></a></td>
     </tr>
     {/volist}
 </table>
