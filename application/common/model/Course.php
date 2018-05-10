@@ -21,16 +21,4 @@ class Course extends Model{
 		return $this->order($order)
 					->select();
 	}
-	/**
-	 * 编辑记录
-	 */
-	public function edit()
-	{
-		if(input('?param.id'))
-		{
-			$id = input('param.id');
-		}
-		$courses = model('course')->where('id',$id)->select();
-		return $this->fetch('',['courses'=>$courses]);
-	}
 }

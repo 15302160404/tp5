@@ -17,7 +17,7 @@
         <td>{$vo.Course.name|default='课程为空'}</td>
         <td>{$vo.Klass.name|default='班级为空'}</td>
         <td><a href="{:url('klasscourse/del',['id'=>$vo.id])}"><i class="fa fa-times"></i></a></td>
-        <td><a href="{:url('',['id'=>$vo.id])}"><i class="fa fa-pencil"></i></a></td>
+        <td><a href="{:url('klasscourse/edit',['id'=>$vo.id])}"><i class="fa fa-pencil"></i></a></td>
     </tr>
     {/volist}
 </table>

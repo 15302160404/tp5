@@ -49,6 +49,19 @@ class KlasscourseController extends Controller
 		}
 		return $this->error('添加失败');
 	}
+	/**
+	 * 编辑记录
+	 */
+	public function edit()
+	{
+		if(input('?param.id'))
+		{
+			$id = input('param.id');
+		}
+		$klasscourses = model('klasscourse')->where('id',$id)->select();
+		
+		return $this->fetch('',[]);
+	}
 }
 
 	
