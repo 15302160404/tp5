@@ -1,8 +1,8 @@
 {extend name="main" /} {block name="content"}
 <div style="text-align: center;margin-bottom: 60px;">
-		<h2 style="margin-bottom: 20px;">老师信息</h2>
-		<span style="display: block;width: 100px;border:1px solid #999;margin:0 auto"></span>
-	</div>
+    <h2 style="margin-bottom: 20px;">老师信息</h2>
+    <span style="display: block;width: 100px;border:1px solid #999;margin:0 auto"></span>
+</div>
 <table class="table table-striped table-bordered">
     <tr>
         <th>序号</th>
@@ -23,32 +23,38 @@
         <td>{$vo.email}</td>
         <td>{$vo.username}</td>
         <td>{$vo.create_time}</td>
-        <td><a href="#" title="详情" data-toggle="modal" data-target="#divModal"><i class="fa fa-eye"></i></a></td>
+        <td><a href="#" title="详情" data-toggle="modal" data-target="#divModal{$vo.id}"><i class="fa fa-eye"></i></a></td>
+        <!--modal模态框，fade淡入淡出效果,data-backdrop="false"指定一个静态背景，当用户点击模态框外部时不会关闭模态框-->
+        <div id="divModal{$vo.id}" class="modal fade" data-backdrop="false">
+            <!--modal-dialog对话框-->
+            <div class="modal-dialog">
+                <!--弹出框的内容，包含header,body,footer-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!--close当前按钮显示的是关闭效果，data-dismiss关闭模态框-->
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        <h4 class="model-title">{$vo.name}的信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        姓名：{$vo.name}<br>
+                        性别：{eq name='$vo.sex' value='0'}男{else}女{/eq}<br>
+                        用户名：{$vo.username}<br>
+                        邮箱：{$vo.email}<br>
+                        属性：老师
+                    </div>
+                    <div class="modal-footer">
+                        <form action="{:url('teacher/wrong')}" method="post">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭详情</button>
+                            <button type="submit" class="btn btn-primary">更多...</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
         <td><a href="{:url('teacher/edit',['id'=>$vo.id])}" title="编辑"><i class="fa fa-pencil"></i></a></td>
         <td><a href="{:url('teacher/del',['id'=>$vo.id])}" title="删除"><i class="fa fa-times"></i></a></td>
     </tr>
-    <!--modal模态框，fade淡入淡出效果,data-backdrop="false"指定一个静态背景，当用户点击模态框外部时不会关闭模态框-->
-                            <div id="divModal" class="modal fade" data-backdrop="false">
-                                <!--modal-dialog对话框-->
-                                <div class="modal-dialog">
-                                    <!--弹出框的内容，包含header,body,footer-->
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <!--close当前按钮显示的是关闭效果，data-dismiss关闭模态框-->
-                                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                                            <h4 class="model-title">{$vo.name}的信息</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            姓名：{$vo.name}<br>
-                                            性别：{eq name='$vo.sex' value='0'}男{else}女{/eq}
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Print</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
     {/volist}
 </table>
 {$teachers->render()} {/block}

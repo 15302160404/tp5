@@ -42,7 +42,7 @@ class KlassController extends Controller{
             if(!$result){
                 return $this->error('删除失败');exit;
             }
-            return $this->success('删除成功','index');
+            return $this->success('删除成功','klass/index');
         }
 	}
 	/**
@@ -58,4 +58,11 @@ class KlassController extends Controller{
 		$teachers = model('Teacher')->getTeacher();
 		return $this->fetch('',['klass'=>$klass,'teachers'=>$teachers]);
 	}
+	/**
+     * 错误页面
+     * @return [type] [description]
+     */
+    public function wrong(){
+        return $this->error('抱歉，暂无此功能');
+    }
 }

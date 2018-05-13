@@ -9,7 +9,6 @@ class Teacher extends Validate
         'name' => 'require',
         'email' => 'require|email',
         'password' => 'require|max:8',
-        'vote' => 'require|captcha',
     ];
     protected $message = [
         'username.require' => '用户名不能为空',
@@ -18,7 +17,5 @@ class Teacher extends Validate
         'email.email'=>'邮箱的格式不正确',
         'password.require' =>'密码不能为空',
         'password.max'=>'密码的长度已超过8个字符',
-        'vote.require'=>'验证码不能为空',
-        'vote.captcha'=>'验证码不正确'
     ];
 }

@@ -73,7 +73,7 @@ class TeacherController extends Controller{  //2继承
             if(!$result){
                 return $this->error('删除失败');exit;
             }
-            return $this->success('删除成功','index/index');
+            return $this->success('删除成功','teacher/index');
         }
     }
     /**
@@ -110,5 +110,12 @@ class TeacherController extends Controller{  //2继承
             }
             return $this->error('更新失败');
         }
+    }
+    /**
+     * 错误页面
+     * @return [type] [description]
+     */
+    public function wrong(){
+        return $this->error('抱歉，暂无此功能');
     }
 }

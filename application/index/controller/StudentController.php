@@ -89,4 +89,11 @@ class StudentController extends Controller{
 		}
 		return $this->error('非法登录');
 	}
+	/**
+     * 错误页面
+     * @return [type] [description]
+     */
+    public function wrong(){
+        return $this->error('抱歉，暂无此功能');
+    }
 }

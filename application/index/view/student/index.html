@@ -12,7 +12,7 @@
         <th>班级</th>
         <th>邮箱</th>
         <th>创建时间</th>
-        <th colspan="2">操作</th>
+        <th colspan="3">操作</th>
     </tr>
     {volist name="students" id="vo"}
     <tr>
@@ -25,8 +25,38 @@
         <td>{$vo.klass.name}</td>
         <td>{$vo.email}</td>
         <td>{$vo.create_time}</td>
-        <td><a href="{:url('student/del',['id'=>$vo.id])}"><i class="fa fa-times"></i></a></td>
-        <td><a href="{:url('student/edit',['id'=>$vo.id])}"><i class="fa fa-pencil"></i></a></td>
+        <td><a href="#" title="详情" data-toggle="modal" data-target="#divModal{$vo.id}"><i class="fa fa-eye"></i></a></td>
+        <!--modal模态框，fade淡入淡出效果,data-backdrop="false"指定一个静态背景，当用户点击模态框外部时不会关闭模态框-->
+        <div id="divModal{$vo.id}" class="modal fade" data-backdrop="false">
+            <!--modal-dialog对话框-->
+            <div class="modal-dialog">
+                <!--弹出框的内容，包含header,body,footer-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!--close当前按钮显示的是关闭效果，data-dismiss关闭模态框-->
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        <h4 class="model-title">{$vo.name}的信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        姓名：{$vo.name}<br>
+                        学号：{$vo.num}<br>
+                        性别：{eq name='$vo.sex' value='0'}男{else}女{/eq}<br>
+                        班级：{$vo.klass.name}<br>
+                        邮箱：{$vo.email}<br>
+                        属性：学生
+                    </div>
+                    <div class="modal-footer">
+                        <form action="{:url('student/wrong')}" method="post">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭详情</button>
+                            <button type="submit" class="btn btn-primary">更多...</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <td><a href="{:url('student/edit',['id'=>$vo.id])}" title="编辑"><i class="fa fa-pencil"></i></a></td>
+        <td><a href="{:url('student/del',['id'=>$vo.id])}" title="删除"><i class="fa fa-times"></i></a></td>
     </tr>
     {/volist}
 </table>

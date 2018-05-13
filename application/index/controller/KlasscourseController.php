@@ -19,7 +19,7 @@ class KlasscourseController extends Controller
             if(!$result){
                 return $this->error('删除失败');exit;
             }
-            return $this->success('删除成功','index');
+            return $this->success('删除成功','klasscourse/index');
         }
 	}
 	public function add(){
@@ -45,7 +45,7 @@ class KlasscourseController extends Controller
 		}
 		$id = model('KlassCourse')->saveAll($kcs);
 		if ($id) {
-			return $this->success('添加成功','klass/index');
+			return $this->success('添加成功','klasscourse/index');
 		}
 		return $this->error('添加失败');
 	}
@@ -62,6 +62,13 @@ class KlasscourseController extends Controller
 		
 		return $this->fetch('',[]);
 	}
+	/**
+     * 错误页面
+     * @return [type] [description]
+     */
+    public function wrong(){
+        return $this->error('抱歉，暂无此功能');
+    }
 }
 
 	

@@ -29,12 +29,6 @@
         <label for="email">邮箱</label>
         <input type="text" name="email" class="form-control " id="email" value="{$vo.email}">
     </div>
-    <div class="form-group">
-        <label for="yzm">验证码</label>
-        <br>
-        <img src="{:captcha_src()}" class="img-responsive img-rounded" alt="captcha" onclick="this.src=this.src+'?'+Math.random()" style="margin-bottom: 10px;" />
-        <input type="text" name="vote" class="form-control" id="yzm" placeholder ="验证码">
-    </div>
     <button type="submit" class="btn btn-info" class="btn btn-success">提交</button>
 </form>
 {/volist}
