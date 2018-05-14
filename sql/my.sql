@@ -167,3 +167,13 @@ CREATE TABLE `yunzhi_admin` (
 BEGIN;
 INSERT INTO `yunzhi_admin` VALUES (0,'admin','4297f44b13955235245b2497399d7a93');
 COMMIT;
+-- 公告
+create table `yunzhi_notice`(
+`id` int(11) unsigned not null AUTO_INCREMENT,
+`title` varchar(50) not null default '',
+`content` text null,
+`status` tinyint(1)  not null default 1,
+`create_time` int(11)  unsigned not null default 0,
+`update_time` int(11)  unsigned not null default 0,
+primary key(`id`)
+)engine=innodb AUTO_INCREMENT=1 default charset=utf8;

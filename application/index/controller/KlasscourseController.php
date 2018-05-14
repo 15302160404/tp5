@@ -6,7 +6,7 @@ class KlasscourseController extends Controller
 {
 	public function index()
 	{
-		$courses=Model('KlassCourse')-> getAll();
+		$courses=model('KlassCourse')-> getAll();
 		return $this->fetch('',[
 				'courses'=>$courses
 			]);
@@ -58,9 +58,10 @@ class KlasscourseController extends Controller
 		{
 			$id = input('param.id');
 		}
-		$klasscourses = model('klasscourse')->where('id',$id)->select();
-		
-		return $this->fetch('',[]);
+		$klasscourses = model('KlassCourse')->where('id',$id)->select();
+		$courses = model('course')->select();
+		$klasss = model('klass')->select();
+		return $this->fetch('',['klasscourses'=>$klasscourses,'courses'=>$courses,'klasss'=>$klasss]);
 	}
 	/**
      * 错误页面
