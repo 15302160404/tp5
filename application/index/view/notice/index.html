@@ -16,7 +16,7 @@
     <tr>
         <td>{$vo.id}</td>
         <td>{$vo.title}</td>
-        <td>{$vo.content}</td>
+        <td>{$vo.content|html_entity_decode}</td>
         <td>{$vo.update_time}</td>
         <td><a href="#" title="详情" data-toggle="modal" data-target="#divModal{$vo.id}"><i class="fa fa-eye"></i></a></td>
         <!--modal模态框，fade淡入淡出效果,data-backdrop="false"指定一个静态背景，当用户点击模态框外部时不会关闭模态框-->
@@ -32,7 +32,7 @@
                     </div>
                     <div class="modal-body">
                         标题：{$vo.title}<br>
-                        内容：{$vo.content}<br>
+                        内容：{$vo.content|html_entity_decode}<br>
                         状态：{eq name="vo.status" value="1"}公开{else}私密{/eq}<br>
                         属性：公告
                     </div>

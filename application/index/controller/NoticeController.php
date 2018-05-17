@@ -39,7 +39,7 @@ class NoticeController extends Controller
 		$result = model('Notice')->save([
 			'title'=>$data['title'],
 			'content'=>$data['content'],
-			'status'=>$data['status']
+			'status'=>$data['status']=1
 		]);
 		if(!$result)
 		{
