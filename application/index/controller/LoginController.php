@@ -29,4 +29,28 @@ class LoginController extends Controller
 		session(null);
 		return $this->redirect('login/index');
 	}
+	//修改管理员密码
+	public function pass()
+	{
+		$data = input('post.');
+		$validate = validate('Pass');
+		if(!$validate->check($data))
+		{
+			return $this->error($validate->getError());
+		}
+		$admin = model('admin')->find();
+		if(md5($data['pwd_origin']) != $admin['password']){
+			return $this->error('原始密码有误');
+		}
+		if($data['pwd_new'] != $data['pwd_confirm'])
+		{
+			return $this->error('两次输入的密码不一致');
+		}
+		$result = model('admin')->save(['name'=>$admin['name'],'password'=>md5($data['pwd_new'])],['id'=>$admin['id']]);
+		if($result)
+		{
+			return $this->success('密码修改成功','login/index');
+		}
+		return $this->error('密码修改失败，未知错误');
+	}
 }

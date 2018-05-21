@@ -159,13 +159,15 @@ CREATE TABLE `yunzhi_admin` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL DEFAULT '' COMMENT '用户名',
   `password` varchar(40) NOT NULL DEFAULT '' COMMENT '密码',
+  `create_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- ----------------------------
 --  Records of `yunzhi_klass_course`
 -- ----------------------------
 BEGIN;
-INSERT INTO `yunzhi_admin` VALUES (0,'admin','4297f44b13955235245b2497399d7a93');
+INSERT INTO `yunzhi_admin` VALUES (0,'admin','4297f44b13955235245b2497399d7a93','0','0');
 COMMIT;
 -- 公告
 DROP TABLE IF EXISTS `yunzhi_notice`;

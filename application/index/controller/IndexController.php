@@ -5,6 +5,7 @@ class IndexController extends CommonController //2
 {
     public function index()
     {
-      return $this->fetch();
+    	$admin = model('admin')->select();
+     	return $this->fetch('',['admin'=>$admin]);
     }
 }
