@@ -84,6 +84,14 @@
                             <li><a href="{:url('notice/add')}">添加公告</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">上传与下载<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{:url('notice/index')}">文件详情</a></li>
+                            <li><a href="{:url('notice/index')}">上传</a></li>
+                            <li><a href="{:url('notice/add')}">下载</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a></a></li>
@@ -157,6 +165,7 @@
                         <li class="list-group-item"><a href="{:url('course/index')}" class="text-success"><i class="fa fa-book"></i>课程栏目</a></li>
                         <li class="list-group-item"><a href="{:url('klasscourse/index')}" class="text-info"><i class="fa fa-tags"></i>选课栏目</a></li>
                         <li class="list-group-item"><a href="{:url('notice/index')}" class="text-info"><i class="fa fa-bullhorn"></i>公告栏目</a></li>
+                        <li class="list-group-item"><a href="{:url('notice/index')}" class="text-info"><i class="fa fa-file-text-o"></i>文件栏目</a></li>
                     </ul>
                 </div>
             </div>
@@ -172,6 +181,9 @@
     </div>
     <!-- footer -->
     <nav class="navbar-default navbar-fixed-bottom text-center">
+        <div class="yqlj">
+            友情链接：<a href="http://fontawesome.dashgame.com/" target="_block">Font Awesome</a> | <a href="http://bootcss.com" target="_block">Bootstrap</a> | <a href="http://thinkphp.cn" target="_block">thinkphp官网</a> | <a href="https://www.pexels.com/" target="_block">pexels高清图片</a>
+        </div>
         All images and contents &copy; tarena
     </nav>
 </body>
