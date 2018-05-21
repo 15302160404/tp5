@@ -42,10 +42,6 @@ class LoginController extends Controller
 		if(md5($data['pwd_origin']) != $admin['password']){
 			return $this->error('原始密码有误');
 		}
-		if($data['pwd_new'] != $data['pwd_confirm'])
-		{
-			return $this->error('两次输入的密码不一致');
-		}
 		$result = model('admin')->save(['name'=>$admin['name'],'password'=>md5($data['pwd_new'])],['id'=>$admin['id']]);
 		if($result)
 		{

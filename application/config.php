@@ -240,14 +240,13 @@ return [
     ],
     'captcha' => [
         // 验证码字体大小
-        'fontSize'    =>    30,    
+        'fontSize'    =>    30,
         // 验证码位数
-        'length'      =>    2,   
+        'length'      =>    2,
         // 关闭验证码杂点
         'useNoise'    =>    true,
         //是否画混淆曲线
         'useCurve'    => true,
-        //
     ],
     
 ];
